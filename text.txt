@@ -1,0 +1,5 @@
+Tutorial:https://www.youtube.com/watch?v=JWhRMyyF7nc
+15:38
+ngIf and ngFor are structural directives: You can only have one structural directive per html element
+
+41:47
