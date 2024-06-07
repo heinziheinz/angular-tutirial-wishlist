@@ -19,25 +19,7 @@
     </div>
   </div>
 
-  <div class="row mt-3">
-    <div *ngIf="visibleItems.length === 0; else showItems">
-      There are no wishes in your wishlist
-    </div>
-
-    <ng-template #showItems>
-      <ul class="wishlist">
-        <li *ngFor="let item of visibleItems;  index as i">
-          <div>
-            <label for="">
-              <input class="checkbox" type="checkbox" [checked]="item.isComplete" [attr.data-index]="i"
-                (click)="toggleItem(item)">
-              {{item.wishText}}
-            </label>
-          </div>
-        </li>
-      </ul>
-    </ng-template>
-  </div>
+  <wish-list-comp [wishes]="visibleItems"></wish-list-comp>
 
   <!-- <div>{{items[0].wishText}}</div> -->
 </div>

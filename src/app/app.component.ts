@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { WishItem } from '../shared/models/wishItem';
 import { FormsModule } from '@angular/forms';
+import { WishListCompComponent } from './wish-list-comp/wish-list-comp.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 const filters = [
@@ -13,9 +15,10 @@ const filters = [
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, FormsModule],
+  imports: [RouterOutlet, CommonModule, FormsModule, WishListCompComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  // schemas: [CUSTOM_ELEMENTS_SCHEMA]// added that child component is recognised
 })
 export class AppComponent {
   items: WishItem[] = [
@@ -27,16 +30,6 @@ export class AppComponent {
   // visibleItems = this.items;
   get visibleItems(): WishItem[] {
     return this.items.filter(filters[this.listFilter]);
-    // wehenever a new value is assigned to listFilter, this getter is called
-    // let value = this.listFilter;
-
-    // if (value === '0') {
-    //   return this.items;
-    // } else if (value === '1') {
-    //   return this.items.filter(item => !item.isComplete);
-    // } else {
-    //   return this.items.filter(item => item.isComplete);
-    // }
   }
   listFilter: any = '0';
 
@@ -46,10 +39,5 @@ export class AppComponent {
     // this.visibleItems = this.items;//my solution
     this.newWishText = '';
     console.log('add new wish');
-  }
-
-  toggleItem(item: WishItem) {
-    item.isComplete = !item.isComplete;
-    console.log(item);
   }
 }

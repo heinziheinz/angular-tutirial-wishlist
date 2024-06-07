@@ -11,3 +11,6 @@ ngIf and ngFor are structural directives: You can only have one structural direc
   }
 
 1:12:00
+
+1:22:00
+ng generate component wish-list-comp
