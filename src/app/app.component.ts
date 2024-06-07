@@ -24,6 +24,7 @@ export class AppComponent {
   newWishText = '';
   addNewWish() {
     this.items.push(new WishItem(this.newWishText));
+    // this.visibleItems = this.items;//my solution
     this.newWishText = '';
     console.log('add new wish');
   }
