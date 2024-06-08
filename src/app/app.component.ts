@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { WishItem } from '../shared/models/wishItem';
 import { FormsModule } from '@angular/forms';
 import { WishListCompComponent } from './wish-list-comp/wish-list-comp.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { AssWishFormComponent } from './ass-wish-form/ass-wish-form.component';
 
 
 const filters = [
@@ -15,10 +15,9 @@ const filters = [
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, FormsModule, WishListCompComponent],
+  imports: [RouterOutlet, CommonModule, FormsModule, WishListCompComponent, AssWishFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  // schemas: [CUSTOM_ELEMENTS_SCHEMA]// added that child component is recognised
 })
 export class AppComponent {
   items: WishItem[] = [
@@ -33,11 +32,11 @@ export class AppComponent {
   }
   listFilter: any = '0';
 
-  newWishText = '';
-  addNewWish() {
-    this.items.push(new WishItem(this.newWishText));
-    // this.visibleItems = this.items;//my solution
-    this.newWishText = '';
-    console.log('add new wish');
-  }
+  // newWishText = '';
+  // addNewWish() {
+  //   this.items.push(new WishItem(this.newWishText));
+  //   // this.visibleItems = this.items;//my solution
+  //   this.newWishText = '';
+  //   console.log('add new wish');
+  // }
 }
