@@ -5,17 +5,13 @@ import { WishItem } from '../shared/models/wishItem';
 import { FormsModule } from '@angular/forms';
 import { WishListCompComponent } from './wish-list-comp/wish-list-comp.component';
 import { AssWishFormComponent } from './ass-wish-form/ass-wish-form.component';
+import { WishFilterComponent } from './wish-filter/wish-filter.component';
 
 
-const filters = [
-  (item: WishItem) => true,
-  (item: WishItem) => !item.isComplete,
-  (item: WishItem) => item.isComplete
-];
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, FormsModule, WishListCompComponent, AssWishFormComponent],
+  imports: [RouterOutlet, CommonModule, FormsModule, WishListCompComponent, AssWishFormComponent, WishFilterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -25,18 +21,12 @@ export class AppComponent {
     new WishItem("new laptop", true),
     new WishItem("new car"),
   ]
-  title = 'this is my wishlist';
-  // visibleItems = this.items;
+
+  filter: any = () => { };
+
+
   get visibleItems(): WishItem[] {
-    return this.items.filter(filters[this.listFilter]);
+    return this.items.filter(this.filter);
   }
   listFilter: any = '0';
-
-  // newWishText = '';
-  // addNewWish() {
-  //   this.items.push(new WishItem(this.newWishText));
-  //   // this.visibleItems = this.items;//my solution
-  //   this.newWishText = '';
-  //   console.log('add new wish');
-  // }
 }
