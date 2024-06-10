@@ -22,11 +22,7 @@ export class AppComponent {
     new WishItem("new car"),
   ]
 
-  filter: any = () => { };
+  filter: (item: WishItem) => boolean = () => true;
+  // filter: any;
 
-
-  get visibleItems(): WishItem[] {
-    return this.items.filter(this.filter);
-  }
-  listFilter: any = '0';
 }

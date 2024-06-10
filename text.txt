@@ -19,3 +19,7 @@ ng generate component wish-list-comp
 Weiter
 
 1:41 fertig.
+event binding property binding = ngModel uses both
+
+ExpressionChangedAfterItHasBeenCheckedError: therfore added implements AfterViewInit 
+so the rendering isn`t interrupted
