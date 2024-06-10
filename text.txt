@@ -17,3 +17,5 @@ ng generate component wish-list-comp
 
 1:27
 Weiter
+
+1:41 fertig.
